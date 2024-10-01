@@ -1,0 +1,341 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #000000, #414141)
+}
+
+nav{
+    width: 80%;
+    position: sticky;
+    margin:20px auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+nav h1{
+    flex: 1;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+}
+
+.header-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-link:visited{
+    color: inherit;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+    margin-right: 30px;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; /* Ensure proper positioning of elements */
+}
+
+.circle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+    position: relative;
+}
+
+.center-circle {
+    width: 500px;
+    height: 500px;
+    background-color: #282828;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px #1DB954; /* Soft shadow for depth */
+    z-index: 2; /* Ensure the center circle is above the buttons */
+}
+
+.center-circle h1 {
+    font-size: 2rem;
+    color: #1DB954;
+    margin-bottom: 10px;
+}
+
+.center-circle p {
+    font-size: 1rem;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.button-left,
+.button-right {
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1; /* Place the buttons behind the center circle */
+    background: linear-gradient(145deg, #1DB954, #1aa34a);
+    text-decoration: none;
+}
+
+.button-left {
+    left: calc(50% - 500px); /* Adjust position directly behind the circle */
+}
+
+.button-right {
+    right: calc(50% - 500px); /* Adjust position directly behind the circle */
+}
+
+.button-right-text {
+    text-decoration: none;
+    text-align: right;
+    margin-top: 255px;
+    margin-left: 300px;
+}
+
+.button-left-text{
+    text-decoration: none;
+    text-align: left;
+    margin-top: 255px;
+    margin-right: 300px;
+}
+
+.spot-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem; /* Increase font size */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.spot-button:hover {
+    background: linear-gradient(145deg, #1ed760, #18a148);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.create-playlist {
+    background-color: #282828; /* Slightly lighter dark background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #1DB954; /* Soft shadow for depth */
+    width: 100%;
+    margin: auto;
+    max-width: 400px; /* Limit the width */
+    box-sizing: border-box;
+    text-align: center;
+    align-self: center;
+}
+
+.create-playlist h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.create-playlist label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.create-playlist input[type="text"],
+.create-playlist textarea {
+    width: 100%;
+    max-width: 350px; /* Limit the width */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3e3e3e;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px; /* Limit the width */
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.switch-label {
+    margin-left: 10px;
+    position: relative;
+}
+
+.switch input[type="checkbox"] + .switch-label::before {
+    content: '';
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.switch input[type="checkbox"] + .switch-label::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    transition: transform 0.3s ease;
+}
+
+.switch input[type="checkbox"]:checked + .switch-label::before {
+    background-color: #1DB954; /* Spotify green */
+}
+
+.switch input[type="checkbox"]:checked + .switch-label::after {
+    transform: translateX(20px);
+}
+
+.create-playlist button {
+    width: 100%;
+    max-width: 350px; /* Limit the width */
+    padding: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #1DB954; /* Spotify green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.create-playlist button:hover {
+    background-color: #1ed760; /* Slightly lighter green on hover */
+}
+
+.song-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.option-buttons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.like-button, .dislike-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.like-button {
+    background-color: #1DB954;
+}
+
+.dislike-button {
+    background-color: rgb(212, 78, 78);
+}
+
+.player-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: auto; /* Ensure the player is interactive */
+}
+
+.fly-right {
+    animation: fly-right 0.58s forwards;
+}
+
+.fly-left {
+    animation: fly-left 0.5s forwards;
+}
+
+@keyframes fly-right {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(100vw, -50%);
+    }
+}
+
+@keyframes fly-left {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(-100vw, -50%);
+    }
+}
+
+.like-button span, .dislike-button span {
+    pointer-events: none; /* Prevent the text from interfering with button clicks */
+}
